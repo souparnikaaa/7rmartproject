@@ -34,16 +34,12 @@ public class PageUtility {
 		
 				
 	}
-	
-	
 
     public void selectByIndex(WebElement element, int index) {
         Select select = new Select(element);
         select.selectByIndex(index);
     }
 
-    
-    
     public void selectByValue(WebElement element, String value) {
         Select select = new Select(element);
         select.selectByValue(value);
@@ -90,25 +86,9 @@ public class PageUtility {
     }
     
     
-   
-    
- 
-
-	
-	
 	
 	
 }
-
-
-
-
-
-
-
-
-
-
 
 
 

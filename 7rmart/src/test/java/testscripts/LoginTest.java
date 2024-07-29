@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 
 import pages.LoginPage;
 import pages.ManagepagesPage;
+import utilities.ExcelUtility;
 
 public class LoginTest extends Base{
 
@@ -13,13 +14,11 @@ public class LoginTest extends Base{
 	@Test
 	public void verifywhetheruserisabletologinwithcorrectusernameandpassword()
 	{
-	String username="admin";
-	String password="admin";
+	String username=ExcelUtility.getString(1, 0, "LoginPage");
+	String password=ExcelUtility.getString(1, 1, "LoginPage");
 	
 	LoginPage loginpage=new LoginPage(driver);
 	loginpage.enterUsernameOnUsernameField(username).enterPasswordOnPasswordField(password).submitButtonField();
-	loginpage.enterPasswordOnPasswordField(password);
-	loginpage.submitButtonField();
 	
 	boolean adminimage=loginpage.verifyAdminImageIsDisplayed();
 
@@ -31,8 +30,8 @@ public class LoginTest extends Base{
 	@Test
 	public void verifywhetheruserisabletologinwithwrongusernameandcorrectpassword()
 	{
-	String username="sou";
-	String password="admin";
+	String username=ExcelUtility.getString(1, 2, "LoginPage");
+	String password=ExcelUtility.getString(1, 1, "LoginPage");
 	
 	LoginPage loginpage=new LoginPage(driver);
 	loginpage.enterUsernameOnUsernameField(username);
@@ -47,8 +46,8 @@ public class LoginTest extends Base{
 	@Test
 	public void verifywhetheruserisabletologinwithwrongpasswordandcorrectusername()
 	{
-	String username="admin";
-	String password="abc";
+	String username=ExcelUtility.getString(1, 0, "LoginPage");
+	String password=ExcelUtility.getString(1, 3, "LoginPage");
 	
 	LoginPage loginpage=new LoginPage(driver);
 	loginpage.enterUsernameOnUsernameField(username);
@@ -63,8 +62,8 @@ public class LoginTest extends Base{
 	@Test
 	public void verifywhetheruserisabletologinwithwrongusernameandwrongpassword()
 	{
-	String username="sou";
-	String password="abc";
+	String username=ExcelUtility.getString(1, 2, "LoginPage");
+	String password=ExcelUtility.getString(1, 3, "LoginPage");
 	
 	LoginPage loginpage=new LoginPage(driver);
 	loginpage.enterUsernameOnUsernameField(username);

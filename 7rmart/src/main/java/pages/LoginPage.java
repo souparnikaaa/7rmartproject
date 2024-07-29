@@ -66,8 +66,15 @@ public class LoginPage {
 	        return alertDisplayed;
 	    }
 	 
-	 //PageUtility pageutility=new PageUtility(); code for utility
-		//PageUtility.selectavalueUsingByvisibletext(visiblityby,test data); //code for utility
+	 
+	 public LoginPage navigatetoapage(String url)
+		{
+			PageUtility pageUtility=new PageUtility();
+			pageUtility.navigatetoanotherpage(driver, url);	
+		return this;
+		}
+	 
+	 
 	  
 	
 }
