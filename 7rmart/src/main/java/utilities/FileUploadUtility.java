@@ -5,9 +5,21 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class FileUploadUtility {
+
+	
+	
+	public void fileuploadUtilityUsingSendkeys(WebDriver driver, By fileInputSelector,String filePath)
+	{
+		
+		WebElement file=driver.findElement(fileInputSelector);
+		file.sendKeys(filePath);
+	}
+	
 
 	
 public void FileUploadUtility(WebElement element,String filePath)
