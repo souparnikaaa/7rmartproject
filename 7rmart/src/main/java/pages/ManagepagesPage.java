@@ -23,19 +23,17 @@ public WebDriver driver;
 	}
 	
 	@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/pages/add']")WebElement newbutton;
+	@FindBy(xpath="//input[@placeholder='Enter the Title']")private WebElement tittlefield;
+	@FindBy(xpath="//div[@role='textbox']")private WebElement Descriptionfield;
+	@FindBy(xpath="//input[@placeholder='Enter Page Name']")private WebElement Pagefield;
+	@FindBy(xpath="//input[@id='main_img']")private WebElement imagefield;
+	@FindBy(xpath="//button[@name='create']")private WebElement savebutton;
+    @FindBy(xpath="//a[@href='javascript:void(0)']")private WebElement searchbutton;
+	@FindBy(xpath="//input[@placeholder='Title']")private WebElement searchtittlefield;
+	@FindBy(xpath="//button[@name='Search']")private WebElement searchredbutton;
+	@FindBy(xpath="//a[text()='Reset']")private WebElement resetbutton;
 	
-	@FindBy(xpath="//input[@placeholder='Enter the Title']")WebElement tittlefield;
-	@FindBy(xpath="//div[@role='textbox']")WebElement Descriptionfield;
-	@FindBy(xpath="//input[@placeholder='Enter Page Name']")WebElement Pagefield;
-	@FindBy(xpath="//input[@id='main_img']")WebElement imagefield;
-	@FindBy(xpath="//button[text()='Save']")WebElement savebutton;
-	
-	@FindBy(xpath="//a[@href='javascript:void(0)']")WebElement searchbutton;
-	@FindBy(xpath="//input[@placeholder='Title']")WebElement searchtittlefield;
-	@FindBy(xpath="//button[@name='Search']")WebElement searchredbutton;
-	@FindBy(xpath="//a[text()='Reset']")WebElement resetbutton;
-	
-	@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/pages/delete?del=1493&page_ad=1']")WebElement deletebutton;
+	@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/pages/delete?del=1493&page_ad=1']")private WebElement deletebutton;
 	
 		public ManagepagesPage clicknewbuttonButtonfield()
 	{
@@ -80,9 +78,9 @@ public WebDriver driver;
 	
 	public ManagepagesPage clicksaveButtonField()
 	{   
-		
-		savebutton.click();
-		
+		PageUtility pageutility=new PageUtility();
+		pageutility.forceClickUsingJavaScriptExecutor(driver, savebutton);
+
 	return this;
 	}
 
@@ -121,9 +119,7 @@ public WebDriver driver;
 	return this;
 	}
 	
-	
 
-	
 	
 	public ManagepagesPage deleteButtonfield()
 	{
@@ -135,8 +131,6 @@ public WebDriver driver;
 	return this;
 	}
 	
-	
-	
-	
+
 	
 }

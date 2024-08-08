@@ -1,15 +1,13 @@
 package pages;
 
-import org.openqa.selenium.By;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import dev.failsafe.internal.util.Assert;
 import utilities.PageUtility;
-
-import static org.testng.Assert.assertTrue;
+import utilities.WaitUtility;
 
 public class LoginPage {
 
@@ -22,15 +20,15 @@ public class LoginPage {
 		
 	}
 	
-	@FindBy(xpath="//input[@placeholder='Username']") WebElement usernamefield;
+	@FindBy(xpath="//input[@placeholder='Username']")private WebElement usernamefield;
 	
-	@FindBy(xpath="//input[@placeholder='Password']") WebElement passwordfield;
+	@FindBy(xpath="//input[@placeholder='Password']")private WebElement passwordfield;
 
-	@FindBy(xpath="//button[@type='submit']") WebElement submitbuttton;
+	@FindBy(xpath="//button[@type='submit']")private WebElement submitbuttton;
 	
-	@FindBy(xpath="//img[@src='https://groceryapp.uniqassosiates.com/public/assets/admin/dist/img/avatar5.png']") WebElement admin;
+	@FindBy(xpath="//img[@src='https://groceryapp.uniqassosiates.com/public/assets/admin/dist/img/avatar5.png']")private WebElement admin;
 	
-	@FindBy(xpath="//i[@class='icon fas fa-ban']") WebElement alertbox;
+	@FindBy(xpath="//i[@class='icon fas fa-ban']")private WebElement alertbox;
 	
 	
 	public LoginPage enterUsernameOnUsernameField(String username)
@@ -49,30 +47,33 @@ public class LoginPage {
 	}
 	
 
-	public void submitButtonField()
+	public LoginPage submitButtonField()
 	{
-		
+		WaitUtility waitutility=new WaitUtility();
+		waitutility.waitUntilElementToBeClickable(driver, submitbuttton);
 		submitbuttton.click();
+		return this;
+		
 	}
 	
 	 public boolean verifyAdminImageIsDisplayed() {
 	        boolean adminImageDisplayed = admin.isDisplayed();
 	        return adminImageDisplayed;
-	    }
+	 }
 	 
 	 
 	 public boolean verifyAlertIsDisplayed() {
 	        boolean alertDisplayed = alertbox.isDisplayed();
 	        return alertDisplayed;
-	    }
+	  }
 	 
 	 
 	 public LoginPage navigatetoapage(String url)
-		{
+	  {
 			PageUtility pageUtility=new PageUtility();
 			pageUtility.navigatetoanotherpage(driver, url);	
 		return this;
-		}
+	  }
 	 
 	 
 	  
