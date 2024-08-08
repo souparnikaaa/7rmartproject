@@ -1,10 +1,5 @@
 package utilities;
 
-import java.awt.Robot;
-import java.awt.Toolkit;
-import java.awt.datatransfer.StringSelection;
-import java.awt.event.KeyEvent;
-
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -19,6 +14,12 @@ public class PageUtility {
 		 driver.navigate().to(url);
 	 }
 	
+	 public void forceClickUsingJavaScriptExecutor(WebDriver driver,WebElement element)
+	 {
+	 	JavascriptExecutor js=(JavascriptExecutor)driver;
+	 	js.executeScript("arguments[0].click();", element);
+	 	
+	 }
 	 
 	public String getAttribute(WebElement element, String attributeName) {
         return element.getAttribute(attributeName);
@@ -86,7 +87,16 @@ public class PageUtility {
     }
     
     
-	
+    
+    public void radioButton(WebDriver driver,WebElement radiobuttonone,WebElement radiobuttwo)
+    {
+    	 if (radiobuttonone.isSelected()) {
+            
+             
+             radiobuttwo.click();
+         } 
+    }
+    
 	
 }
 
