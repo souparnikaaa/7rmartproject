@@ -1,17 +1,17 @@
 package testscripts;
 
-import static org.testng.Assert.assertTrue;
-
 import org.testng.annotations.Test;
 
+
+import static org.testng.Assert.assertTrue;
+
 import pages.LoginPage;
-import pages.ManagepagesPage;
 import utilities.ExcelUtility;
 
 public class LoginTest extends Base{
 
 	
-	@Test
+	@Test(groups= {"regression"},retryAnalyzer=retry.Retry.class,description="this testcase is using to verify whether user is able to login with correct username and password ")
 	public void verifywhetheruserisabletologinwithcorrectusernameandpassword()
 	{
 	String username=ExcelUtility.getString(1, 0, "LoginPage");
@@ -27,7 +27,7 @@ public class LoginTest extends Base{
 	}
 	
 	
-	@Test
+	@Test(groups= {"smoke"},retryAnalyzer=retry.Retry.class,description="this testcase is using to verify whether user is able to login with wrong username and correct password")
 	public void verifywhetheruserisabletologinwithwrongusernameandcorrectpassword()
 	{
 	String username=ExcelUtility.getString(1, 2, "LoginPage");
@@ -43,7 +43,7 @@ public class LoginTest extends Base{
 
 	}
 	
-	@Test
+	@Test(retryAnalyzer=retry.Retry.class,description="this testcase is using to verify whether user is able to login with wrong password and correct username ")
 	public void verifywhetheruserisabletologinwithwrongpasswordandcorrectusername()
 	{
 	String username=ExcelUtility.getString(1, 0, "LoginPage");
@@ -59,7 +59,7 @@ public class LoginTest extends Base{
 
 	}
 	
-	@Test
+	@Test(retryAnalyzer=retry.Retry.class,description="this testcase is using to verify whether user is able to login with wrong username and wrong password")
 	public void verifywhetheruserisabletologinwithwrongusernameandwrongpassword()
 	{
 	String username=ExcelUtility.getString(1, 2, "LoginPage");
