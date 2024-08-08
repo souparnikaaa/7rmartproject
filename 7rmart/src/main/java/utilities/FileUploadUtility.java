@@ -13,16 +13,13 @@ public class FileUploadUtility {
 
 	
 	
-	public void fileuploadUtilityUsingSendkeys(WebDriver driver, By fileInputSelector,String filePath)
+	public void fileuploadUtilityUsingSendkeys(WebElement filefield,String filepath)
 	{
-		
-		WebElement file=driver.findElement(fileInputSelector);
-		file.sendKeys(filePath);
+		filefield.sendKeys(filepath);
 	}
-	
 
 	
-public void FileUploadUtility(WebElement element,String filePath)
+    public void FileUploadUtility(WebElement element,String filePath)
 	
 	{
 	StringSelection ss = new StringSelection(filePath); 
@@ -37,7 +34,7 @@ public void FileUploadUtility(WebElement element,String filePath)
         robot.keyRelease(KeyEvent.VK_ENTER); 
 
         // Mac typically uses COMMAND key instead of CONTROL for paste 
-       robot.keyPress(KeyEvent.VK_META); 
+        robot.keyPress(KeyEvent.VK_META); 
         robot.keyPress(KeyEvent.VK_V); 
         robot.keyRelease(KeyEvent.VK_V); 
         robot.keyRelease(KeyEvent.VK_META); 
@@ -53,9 +50,6 @@ public void FileUploadUtility(WebElement element,String filePath)
 		
 				
 	}
-	
-	
-	
-	
+
 	
 }
