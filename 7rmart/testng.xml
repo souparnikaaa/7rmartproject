@@ -12,7 +12,8 @@
       <methods>
       <include name="verifyWhetherTheUserIsAbleToAddTheSubCategory">
       </include>
-      
+      <include name="verifyWhetherTheUserIsAbleToAddTheSubCategoryforduplicateSubCategory">
+      </include>
       
       </methods>
       </class> 
