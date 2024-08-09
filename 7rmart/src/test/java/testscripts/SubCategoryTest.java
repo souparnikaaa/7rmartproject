@@ -61,20 +61,7 @@ public class SubCategoryTest extends Base
 		assertTrue(alertwindow, "the subcategory is added" );
 		}
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+	
 		
 		
 }
