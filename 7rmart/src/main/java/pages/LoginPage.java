@@ -21,15 +21,10 @@ public class LoginPage {
 	}
 	
 	@FindBy(xpath="//input[@placeholder='Username']")private WebElement usernamefield;
-	
 	@FindBy(xpath="//input[@placeholder='Password']")private WebElement passwordfield;
-
-	@FindBy(xpath="//button[@type='submit']")private WebElement submitbuttton;
-	
+    @FindBy(xpath="//button[@type='submit']")private WebElement submitbuttton;
 	@FindBy(xpath="//img[@src='https://groceryapp.uniqassosiates.com/public/assets/admin/dist/img/avatar5.png']")private WebElement admin;
-	
 	@FindBy(xpath="//i[@class='icon fas fa-ban']")private WebElement alertbox;
-	
 	
 	public LoginPage enterUsernameOnUsernameField(String username)
 	{
@@ -68,15 +63,13 @@ public class LoginPage {
 	  }
 	 
 	 
-	 public LoginPage navigatetoapage(String url)
+	 public CategoryPage navigatetoapage(String url)
 	  {
 			PageUtility pageUtility=new PageUtility();
 			pageUtility.navigatetoanotherpage(driver, url);	
-		return this;
+			return new CategoryPage(driver);
 	  }
-	 
-	 
-	  
+  
 	
 }
 
