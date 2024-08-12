@@ -10,7 +10,7 @@ import utilities.PageUtility;
 
 public class SubCategoryPage {
 public WebDriver driver;
-//public String filePath;
+
 
 	public SubCategoryPage(WebDriver driver) //constructor argument pass
 	{
@@ -73,8 +73,6 @@ public WebDriver driver;
 	        boolean alertDisplayed = subcategoryallreadyexistalert.isDisplayed();
 	        return alertDisplayed;
 	    }
-	
-	
 	
 	
 }

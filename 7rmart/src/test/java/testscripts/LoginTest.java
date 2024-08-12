@@ -1,5 +1,6 @@
 package testscripts;
 
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 
@@ -59,11 +60,9 @@ public class LoginTest extends Base{
 
 	}
 	
-	@Test(retryAnalyzer=retry.Retry.class,description="this testcase is using to verify whether user is able to login with wrong username and wrong password")
-	public void verifywhetheruserisabletologinwithwrongusernameandwrongpassword()
+	@Test(dataProvider="LoginProvider",retryAnalyzer=retry.Retry.class,description="this testcase is using to verify whether user is able to login with wrong username and wrong password")
+	public void verifywhetheruserisabletologinwithwrongusernameandwrongpassword(String username,String password)
 	{
-	String username=ExcelUtility.getString(1, 2, "LoginPage");
-	String password=ExcelUtility.getString(1, 3, "LoginPage");
 	
 	LoginPage loginpage=new LoginPage(driver);
 	loginpage.enterUsernameOnUsernameField(username);
@@ -75,6 +74,12 @@ public class LoginTest extends Base{
 
 	}
 	
-	
+	@DataProvider(name = "LoginProvider")
+	public Object[][] getDataFromTestData() {
+		return new Object[][] { 
+			new Object[]{ ExcelUtility.getString(1, 2, "LoginPage"), ExcelUtility.getString(1, 3, "LoginPage") },
+			new Object[]{ "sou", "123" },
+		};
+	}
 	
 }

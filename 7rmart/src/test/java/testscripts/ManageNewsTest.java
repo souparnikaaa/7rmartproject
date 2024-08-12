@@ -83,22 +83,6 @@ public class ManageNewsTest extends Base {
 		
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
-	
-	
 	
 }
